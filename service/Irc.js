@@ -28,6 +28,7 @@ export default class Irc {
 
         if (e.data.startsWith(":tmi.twitch.tv 001")) {
             console.log("connected");
+            this.ws.send("JOIN #gempir");
         }
 
         let parsed = parse(e.data)
