@@ -9,7 +9,7 @@ export default function parse(line) {
     let params = ''
     let trailing = ''
     let pos = 0
-    let parse_error = new Error('This message is not a valid IRC Message.')
+    let parse_error = new Error(`This message is not a valid IRC Message: ${line}`)
 
     /**
      * IRCv3 MESSAGE TAGS

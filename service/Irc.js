@@ -20,15 +20,14 @@ export default class Irc {
     }
 
     handleNewMessage = (e) => {
-        if (e.data === "PING :tmi.twitch.tv") {
+        if (e.data.startsWith("PING :tmi.twitch.tv")) {
             console.log("responding to ping")
             this.ws.send("PONG :tmi.twitch.tv");
             return;
         }
 
         if (e.data.startsWith(":tmi.twitch.tv 001")) {
-            console.log("joinig pajlada")
-            this.ws.send("JOIN #pajlada\r\n");
+            console.log("connected");
         }
 
         let parsed = parse(e.data)
